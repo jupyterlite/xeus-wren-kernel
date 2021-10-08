@@ -51,7 +51,7 @@ RUN cd /opt/nlohmannjson/build && \
 ##################################################################
 
  RUN mkdir -p /opt/nlohmannjson/build &&  \
-    git clone -b wasm https://github.com/DerThorsten/xeus.git   /opt/xeus
+    git clone -b no_threads https://github.com/DerThorsten/xeus.git   /opt/xeus
 
 #
 #ADD xeus  /opt/xeus
@@ -91,10 +91,8 @@ RUN emmake make -j2 install
 # xeus-wren
 ##################################################################
 
-ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
-
 RUN mkdir -p /opt/nlomannjson/build &&  \
-   git clone -b wasm https://github.com/DerThorsten/xeus-wren.git  /opt/xeus-wren
+   git clone -b main https://github.com/DerThorsten/xeus-wren.git  /opt/xeus-wren
 
 # COPY xeus-wren /opt/xeus-wren
 

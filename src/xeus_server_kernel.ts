@@ -18,18 +18,10 @@ export class XeusServerKernel implements IKernel {
     this._name = name;
     this._sendMessage = sendMessage;
 
-    const package_path = 'xeus_wren_kernel.js';
-
     this._worker = new Worker(new URL('./worker.js', import.meta.url));
     this._worker.onmessage = e => {
       this._processWorkerMessage(e.data);
     };
-    this._worker.postMessage({
-      msg: {
-        header: { msg_type: '__import__' },
-        content: { package_path }
-      }
-    });
   }
   async handleMessage(msg: KernelMessage.IMessage): Promise<void> {
     this._parent = msg;
