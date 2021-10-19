@@ -20,11 +20,13 @@ RUN mkdir -p /install/lib
 
 
 
+
 ##################################################################
 # xtl
 ##################################################################
 RUN mkdir -p /opt/xtl/build && \
     git clone https://github.com/xtensor-stack/xtl.git  /opt/xtl/src
+RUN cd  /opt/xtl/src && git checkout tags/0.7.2
 
 RUN cd /opt/xtl/build && \
     emcmake cmake ../src/   -DCMAKE_INSTALL_PREFIX=/install
@@ -38,6 +40,7 @@ RUN cd /opt/xtl/build && \
 ##################################################################
 RUN mkdir -p /opt/nlohmannjson/build && \
     git clone https://github.com/nlohmann/json.git /opt/nlohmannjson/src
+RUN cd /opt/nlohmannjson/src && git checkout tags/v3.9.1
 
 RUN cd /opt/nlohmannjson/build && \
     emcmake cmake ../src/   -DCMAKE_INSTALL_PREFIX=/install -DJSON_BuildTests=OFF
@@ -49,12 +52,9 @@ RUN cd /opt/nlohmannjson/build && \
 ##################################################################
 # xeus itself
 ##################################################################
-
- RUN mkdir -p /opt/nlohmannjson/build &&  \
-    git clone -b no_threads https://github.com/DerThorsten/xeus.git   /opt/xeus
-
-#
-#ADD xeus  /opt/xeus
+RUN mkdir -p /opt/nlohmannjson/build &&  \
+    git clone  https://github.com/jupyter-xeus/xeus.git   /opt/xeus
+RUN cd /opt/xeus && git checkout e7e60eee44d00627007e8032a52d12f04b9a3523
 
 RUN cd /install/lib && echo "LS" && ls
 RUN cd /install/include && echo "LS" && ls
@@ -75,8 +75,7 @@ RUN cd /xeus-build && \
 ##################################################################
 ADD CMakeLists.txt  .
 RUN git clone https://github.com/wren-lang/wren   /opt/wasm_wren
-# RUN cd /opt/wasm_wren/projects/make && \
-#     emmake make 
+RUN cd /opt/wasm_wren/ && git checkout tags/0.4.0
 
 RUN emcmake cmake -DCMAKE_BUILD_TYPE=Release      \
       -DCMAKE_INSTALL_PREFIX=/install  \
@@ -91,8 +90,11 @@ RUN emmake make -j2 install
 # xeus-wren
 ##################################################################
 
+ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
+
 RUN mkdir -p /opt/nlomannjson/build &&  \
-   git clone -b main https://github.com/DerThorsten/xeus-wren.git  /opt/xeus-wren
+   git clone -b io https://github.com/DerThorsten/xeus-wren.git  /opt/xeus-wren
+RUN cd /opt/xeus-wren/ && git checkout tags/0.3.2
 
 # COPY xeus-wren /opt/xeus-wren
 

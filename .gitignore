@@ -114,6 +114,6 @@ dmypy.json
 _output
 *.doit.db
 
-xeus_wren.js
-xeus_wren.wasm
-xeus_wren.worker.js
+xeus_kernel.js
+xeus_kernel.wasm
+xeus_kernel.worker.js
