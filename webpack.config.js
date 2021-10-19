@@ -11,7 +11,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: 'src/xeus_wren.wasm',
+          from: 'src/xeus_kernel.wasm',
           to: '.'
         }
       ]
