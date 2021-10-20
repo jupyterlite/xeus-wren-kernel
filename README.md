@@ -2,11 +2,14 @@
 
 [![Github Actions Status](https://github.com/DerThorsten/jupyter-lite-xeus-wren/workflows/Build/badge.svg)](https://github.com/DerThorsten/jupyter-lite-xeus-wren/actions/workflows/build.yml)
 
-A JupyterLite server extension.
+A wren kernel for JupyterLite running in the browser.
+
+![jupyterlite-xeus-wren](https://user-images.githubusercontent.com/591645/136570953-9bae67ad-fca6-436a-99e8-4cb6b0536d8c.gif)
+
 
 ## Requirements
 
-- JupyterLite >= 0.1.0a10
+- JupyterLite >= 0.1.0a14
 
 ## Install
 

@@ -1,16 +1,16 @@
 {
   "name": "jupyterlite-xeus-wren",
   "version": "0.1.0",
-  "description": "A JupyterLite server extension.",
+  "description": "A wren kernel for JupyterLite, powered by Xeus",
   "keywords": [
     "jupyter",
     "jupyterlab",
     "jupyterlite",
     "jupyterlite-extension"
   ],
-  "homepage": "https://github.com/DerThorsten/jupyter-lite-xeus-wren",
+  "homepage": "https://github.com/DerThorsten/jupyterlite_xeus_wren",
   "bugs": {
-    "url": "https://github.com/DerThorsten/jupyter-lite-xeus-wren/issues"
+    "url": "https://github.com/DerThorsten/jupyterlite_xeus_wren/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -26,13 +26,15 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DerThorsten/jupyter-lite-xeus-wren.git"
+    "url": "https://github.com/DerThorsten/jupyterlite_xeus_wren.git"
   },
   "scripts": {
     "build:dockerimage": "docker build -t mydockerimage  --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) . ",
+    "build:dockerimage_no_cache": "docker build -t mydockerimage  --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) --no-cache . ",
     "build:emscripten": "echo $(pwd) && docker run --rm -v $(pwd):/src    -u $(id -u):$(id -g)  mydockerimage    ./build.sh",
     "copy-files": "copyfiles -u 1 src/xeus_kernel.wasm  src/xeus_kernel.worker.js src/xeus_kernel.js lib",
     "build:wasm": "jlpm run build:dockerimage && jlpm run build:emscripten",
+    "build:wasm_no_cache": "jlpm run build:dockerimage_no_cache && jlpm run build:emscripten",
     "build": "jlpm run build:lib && jlpm run copy-files && jlpm run build:labextension:dev",
     "build:prod": "jlpm run clean && jlpm run build:wasm && jlpm run build:lib && jlpm run copy-files && jlpm run build:labextension",
     "build:labextension": "jupyter labextension build .",
@@ -54,9 +56,7 @@
     "watch:labextension": "jupyter labextension watch ."
   },
   "dependencies": {
-    "@jupyterlite/server": "^0.1.0-alpha.10",
-    "@jupyterlab/application": "^3.1.0",
-    "@jupyterlab/codemirror": "^3.1.12"
+    "@jupyterlite/server": "^0.1.0-alpha.14"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.1.0",
