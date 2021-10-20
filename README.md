@@ -4,8 +4,7 @@
 
 A wren kernel for JupyterLite running in the browser.
 
-![jupyterlite-xeus-wren](https://user-images.githubusercontent.com/591645/136570953-9bae67ad-fca6-436a-99e8-4cb6b0536d8c.gif)
-
+![jupyterlite-xeus-wren](https://user-images.githubusercontent.com/591645/138090246-4f07112c-9bfc-4c6c-a2c8-f3942683f453.gif)
 
 ## Requirements
 
