@@ -10,8 +10,12 @@ import { IKernel, IKernelSpecs } from '@jupyterlite/kernel';
 
 import { XeusServerKernel } from './xeus_server_kernel';
 
+import logo32 from '../style/logos/wren-logo-32x32.png';
+
+import logo64 from '../style/logos/wren-logo-64x64.png';
+
 const server_kernel: JupyterLiteServerPlugin<void> = {
-  id: '@jupyterlite/xeus-wren-extension:kernel',
+  id: '@jupyterlite/xeus-wren-kernel-extension:kernel',
   autoStart: true,
   requires: [IKernelSpecs],
   activate: (app: JupyterLiteServer, kernelspecs: IKernelSpecs) => {
@@ -30,8 +34,8 @@ const server_kernel: JupyterLiteServerPlugin<void> = {
           metadata: {}
         },
         resources: {
-          'logo-32x32': '/kernelspecs/wren-logo-32x32.png',
-          'logo-64x64': '/kernelspecs/wren-logo-64x64.png'
+          'logo-32x32': logo32,
+          'logo-64x64': logo64
         }
       },
       create: async (options: IKernel.IOptions): Promise<IKernel> => {

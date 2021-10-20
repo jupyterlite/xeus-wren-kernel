@@ -90,8 +90,6 @@ RUN emmake make -j2 install
 # xeus-wren
 ##################################################################
 
-ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
-
 RUN mkdir -p /opt/nlomannjson/build &&  \
    git clone -b io https://github.com/DerThorsten/xeus-wren.git  /opt/xeus-wren
 RUN cd /opt/xeus-wren/ && git checkout tags/0.3.2

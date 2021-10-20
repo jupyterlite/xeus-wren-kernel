@@ -17,7 +17,6 @@ export class XeusServerKernel implements IKernel {
     this._id = id;
     this._name = name;
     this._sendMessage = sendMessage;
-
     this._worker = new Worker(new URL('./worker.js', import.meta.url));
     this._worker.onmessage = e => {
       this._processWorkerMessage(e.data);
