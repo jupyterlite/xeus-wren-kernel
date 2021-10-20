@@ -1,6 +1,6 @@
 # jupyterlite_xeus_wren
 
-[![Github Actions Status](https://github.com/DerThorsten/jupyter-lite-xeus-wren/workflows/Build/badge.svg)](https://github.com/DerThorsten/jupyter-lite-xeus-wren/actions/workflows/build.yml)
+[![Github Actions Status](https://github.com/DerThorsten/jupyterlite_xeus_wren/workflows/Build/badge.svg)](https://github.com/DerThorsten/jupyterlite_xeus_wren/actions/workflows/build.yml)
 
 A wren kernel for JupyterLite running in the browser.
 
