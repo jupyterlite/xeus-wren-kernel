@@ -16,6 +16,9 @@ prune **/node_modules
 prune lib
 prune binder
 
+#exclude CMakeLists
+exclude CMakeLists.txt
+
 # Patterns to exclude from any directory
 global-exclude *~
 global-exclude *.pyc
