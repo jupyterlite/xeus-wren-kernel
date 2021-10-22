@@ -91,7 +91,7 @@ RUN emmake make -j2 install
 ##################################################################
 
 RUN mkdir -p /opt/nlomannjson/build &&  \
-   git clone -b io https://github.com/DerThorsten/xeus-wren.git  /opt/xeus-wren
+   git clone -b io https://github.com/jupyter-xeus/xeus-wren.git  /opt/xeus-wren
 RUN cd /opt/xeus-wren/ && git checkout tags/0.3.2
 
 # COPY xeus-wren /opt/xeus-wren
