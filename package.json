@@ -1,5 +1,5 @@
 {
-  "name": "jupyterlite-xeus-wren",
+  "name": "@jupyterlite/xeus-wren-kernel",
   "version": "0.1.1",
   "description": "A wren kernel for JupyterLite, powered by Xeus",
   "keywords": [
@@ -8,9 +8,9 @@
     "jupyterlite",
     "jupyterlite-extension"
   ],
-  "homepage": "https://github.com/DerThorsten/jupyterlite_xeus_wren",
+  "homepage": "https://github.com/jupyterlite/xeus-wren-kernel",
   "bugs": {
-    "url": "https://github.com/DerThorsten/jupyterlite_xeus_wren/issues"
+    "url": "https://github.com/jupyterlite/xeus-wren-kernel/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -26,7 +26,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DerThorsten/jupyterlite_xeus_wren.git"
+    "url": "https://github.com/jupyterlite/xeus-wren-kernel.git"
   },
   "scripts": {
     "build:dockerimage": "docker build -t mydockerimage  --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) . ",

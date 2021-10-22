@@ -10,7 +10,7 @@ import setuptools
 HERE = Path(__file__).parent.resolve()
 
 # The name of the project
-name = "jupyterlite_xeus_wren"
+name = "jupyterlite-xeus-wren"
 
 lab_path = (HERE / name.replace("-", "_") / "labextension")
 
@@ -49,7 +49,7 @@ setup_args = dict(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
-    install_requires=[],
+    install_requires=["jupyter-wren-syntax"],
     zip_safe=False,
     include_package_data=True,
     python_requires=">=3.6",
