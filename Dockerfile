@@ -1,4 +1,4 @@
-FROM emscripten/emsdk:2.0.27
+FROM emscripten/emsdk:2.0.32
 
 
 ARG USER_ID
@@ -17,7 +17,6 @@ ARG GROUP_ID
 
 RUN mkdir -p /install
 RUN mkdir -p /install/lib
-
 
 
 
@@ -52,9 +51,11 @@ RUN cd /opt/nlohmannjson/build && \
 ##################################################################
 # xeus itself
 ##################################################################
-RUN mkdir -p /opt/nlohmannjson/build &&  \
-    git clone  https://github.com/jupyter-xeus/xeus.git   /opt/xeus
-RUN cd /opt/xeus && git checkout e7e60eee44d00627007e8032a52d12f04b9a3523
+
+RUN mkdir -p /opt/xeus
+RUN git clone --branch 2.4.0 --depth 1 https://github.com/jupyter-xeus/xeus.git /opt/xeus
+
+# COPY xeus /opt/xeus
 
 RUN cd /install/lib && echo "LS" && ls
 RUN cd /install/include && echo "LS" && ls
@@ -90,9 +91,10 @@ RUN emmake make -j2 install
 # xeus-wren
 ##################################################################
 
-RUN mkdir -p /opt/nlomannjson/build &&  \
-   git clone -b io https://github.com/jupyter-xeus/xeus-wren.git  /opt/xeus-wren
-RUN cd /opt/xeus-wren/ && git checkout tags/0.3.2
+RUN mkdir -p /opt/xeus-wren
+RUN git clone --branch 0.3.3 --depth 1 https://github.com/jupyter-xeus/xeus-wren.git /opt/xeus-wren
+
+#RUN cd /opt/xeus-wren/ && git checkout tags/0.3.2
 
 # COPY xeus-wren /opt/xeus-wren
 
