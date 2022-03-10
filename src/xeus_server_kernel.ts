@@ -1,3 +1,7 @@
+// Copyright (c) Thorsten Beier
+// Copyright (c) JupyterLite Contributors
+// Distributed under the terms of the Modified BSD License.
+
 import { KernelMessage } from '@jupyterlab/services';
 import { IKernel } from '@jupyterlite/kernel';
 import { ISignal, Signal } from '@lumino/signaling';
@@ -60,24 +64,15 @@ export class XeusServerKernel implements IKernel {
    * @param msg The worker message to process.
    */
   private _processWorkerMessage(msg: any): void {
-    if (msg.type === 'special_input_request') {
-      const message =
-        KernelMessage.createMessage<KernelMessage.IInputRequestMsg>({
-          channel: 'stdin',
-          msgType: 'input_request',
-          session: this._parentHeader?.session ?? '',
-          parentHeader: this._parentHeader,
-          content: msg.content ?? { prompt: '', password: false }
-        });
-      this._sendMessage(message);
-    } else {
-      msg.header.session = this._parentHeader?.session ?? '';
-      msg.session = this._parentHeader?.session ?? '';
-      this._sendMessage(msg);
-    }
+    msg.header.session = this._parentHeader?.session ?? '';
+    msg.session = this._parentHeader?.session ?? '';
+    this._sendMessage(msg);
 
     // resolve promise
-    if (msg.type === 'status' && msg.content.execution_state === 'idle') {
+    if (
+      msg.header.msg_type === 'status' &&
+      msg.content.execution_state === 'idle'
+    ) {
       this._executeDelegate.resolve();
     }
   }
