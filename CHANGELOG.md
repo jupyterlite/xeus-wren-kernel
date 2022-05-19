@@ -2,6 +2,22 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.2.1
+
+([Full Changelog](https://github.com/jupyterlite/xeus-wren-kernel/compare/v0.2.0...5982e2f2ae6d4601523b071ce2a4c3e046faad90))
+
+### Merged PRs
+
+- update xeus [#11](https://github.com/jupyterlite/xeus-wren-kernel/pull/11) ([@DerThorsten](https://github.com/DerThorsten))
+
+### Contributors to this release
+
+([GitHub contributors page for this release](https://github.com/jupyterlite/xeus-wren-kernel/graphs/contributors?from=2022-03-17&to=2022-05-19&type=c))
+
+[@DerThorsten](https://github.com/search?q=repo%3Ajupyterlite%2Fxeus-wren-kernel+involves%3ADerThorsten+updated%3A2022-03-17..2022-05-19&type=Issues)
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.2.0
 
 ([Full Changelog](https://github.com/jupyterlite/xeus-wren-kernel/compare/v0.1.2...ebfe2958b258bd739421507078290d758b111cd5))
@@ -15,8 +31,6 @@
 ([GitHub contributors page for this release](https://github.com/jupyterlite/xeus-wren-kernel/graphs/contributors?from=2021-10-22&to=2022-03-17&type=c))
 
 [@SylvainCorlay](https://github.com/search?q=repo%3Ajupyterlite%2Fxeus-wren-kernel+involves%3ASylvainCorlay+updated%3A2021-10-22..2022-03-17&type=Issues)
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.1.2
 
